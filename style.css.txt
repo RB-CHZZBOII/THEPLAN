@@ -1,0 +1,273 @@
+style.css
+/* Reset & base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: #0B0B0D;
+  color: #E0E0E0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: #00FF85;
+  text-decoration: none;
+}
+
+a:hover, a.nav-link.active {
+  color: #FF004C;
+  text-shadow: 0 0 8px #FF004C;
+}
+
+header {
+  background: #121214;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #222;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #FF004C;
+  text-shadow: 0 0 10px #FF004C;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-link {
+  font-weight: 600;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+#darkModeToggle {
+  background: transparent;
+  border: none;
+  color: #00FF85;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+#darkModeToggle:hover {
+  color: #FF004C;
+  text-shadow: 0 0 8px #FF004C;
+}
+
+main {
+  flex-grow: 1;
+  padding: 2rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+h1, h2, h3 {
+  color: #FF004C;
+  text-shadow: 0 0 8px #FF004C;
+  margin-bottom: 1rem;
+}
+
+p, li, label {
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+}
+
+ul {
+  list-style: none;
+  margin-bottom: 2rem;
+}
+
+.task-list li {
+  margin-bottom: 0.5rem;
+}
+
+.task-list input[type="checkbox"] {
+  margin-right: 0.75rem;
+  cursor: pointer;
+  accent-color: #00FF85;
+}
+
+.progress-summary {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.progress-circle {
+  width: 100px;
+  height: 100px;
+}
+
+.circular-chart {
+  display: block;
+  margin: 10px auto;
+  max-width: 100%;
+  max-height: 250px;
+}
+
+.circle-bg {
+  fill: none;
+  stroke: #222;
+  stroke-width: 3.8;
+}
+
+.circle {
+  fill: none;
+  stroke-width: 3.8;
+  stroke-linecap: round;
+  stroke: #00FF85;
+  transition: stroke-dasharray 0.6s ease 0s;
+}
+
+.percentage {
+  fill: #00FF85;
+  font-size: 0.5em;
+  text-anchor: middle;
+}
+
+.timetable-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+.timetable-table th, .timetable-table td {
+  border: 1px solid #222;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.timetable-table th {
+  background: #1A1A1D;
+  color: #FF004C;
+}
+
+.routine-section ul {
+  list-style: disc inside;
+  margin-bottom: 2rem;
+}
+
+.collapsible-section {
+  margin-bottom: 1.5rem;
+}
+
+.collapsible {
+  background-color: #222;
+  color: #00FF85;
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  border: none;
+  text-align: left;
+  font-size: 1.1rem;
+  outline: none;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #00FF85;
+  transition: background-color 0.3s ease;
+}
+
+.collapsible:hover {
+  background-color: #00FF85;
+  color: #0B0B0D;
+}
+
+.content {
+  padding: 0 1rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background-color: #121214;
+  border-left: 3px solid #00FF85;
+  margin-top: 0.5rem;
+  border-radius: 0 5px 5px 0;
+}
+
+.performance-progress {
+  margin-top: 2rem;
+}
+
+.progress-bar-container {
+  background: #222;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  height: 20px;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #00FF85;
+  width: 0;
+  transition: width 0.5s ease;
+}
+
+.progress-label {
+  color: #E0E0E0;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.countdown-section {
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  color: #00FF85;
+  text-align: center;
+  text-shadow: 0 0 8px #00FF85;
+}
+
+.home-main {
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.quote-container {
+  margin-top: 2rem;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #FF004C;
+  text-shadow: 0 0 10px #FF004C;
+}
+
+footer {
+  background: #121214;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+  border-top: 1px solid #222;
+  color: #666;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .progress-summary {
+    justify-content: center;
+  }
+}
