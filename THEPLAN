@@ -1,7 +1,0 @@
-echo "# THEPLAN" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M Master
-git remote add origin https://github.com/RB-CHZZBOII/THEPLAN.git
-git push -u origin Master
