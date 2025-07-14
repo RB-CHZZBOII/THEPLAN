@@ -246,25 +246,28 @@ function addLoadingAnimation() {
 }
 
 // Initialize all on DOM ready
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   loadTasks();
   loadForexTasks();
   loadPerformanceTasks();
   addLoadingAnimation();
+  updateClock();
+  renderCalendar();
+  setInterval(updateClock, 1000);
   
   // Add click effects to buttons
-  document.querySelectorAll('button, .feature-link').forEach(button => {
-    button.addEventListener('click', function(e) {
-      const ripple = document.createElement('span');
+  document.querySelectorAll("button, .feature-link").forEach(button => {
+    button.addEventListener("click", function(e) {
+      const ripple = document.createElement("span");
       const rect = this.getBoundingClientRect();
       const size = Math.max(rect.width, rect.height);
       const x = e.clientX - rect.left - size / 2;
       const y = e.clientY - rect.top - size / 2;
       
-      ripple.style.width = ripple.style.height = size + 'px';
-      ripple.style.left = x + 'px';
-      ripple.style.top = y + 'px';
-      ripple.classList.add('ripple');
+      ripple.style.width = ripple.style.height = size + "px";
+      ripple.style.left = x + "px";
+      ripple.style.top = y + "px";
+      ripple.classList.add("ripple");
       
       this.appendChild(ripple);
       
@@ -274,4 +277,116 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+// Real-time Clock
+function updateClock() {
+  const now = new Date();
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const seconds = String(now.getSeconds()).padStart(2, '0');
+  const timeString = `${hours}:${minutes}:${seconds}`;
+  const liveClockElement = document.getElementById('liveClock');
+  if (liveClockElement) {
+    liveClockElement.textContent = timeString;
+  }
+}
+
+// Simple Calendar
+function renderCalendar() {
+  const calendarElement = document.getElementById('calendar');
+  if (!calendarElement) return;
+
+  const now = new Date();
+  const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+  const month = monthNames[now.getMonth()];
+  const year = now.getFullYear();
+  const date = now.getDate();
+  const dayOfWeek = dayNames[now.getDay()];
+
+  calendarElement.innerHTML = `
+    <div class="calendar-header">
+      <div class="calendar-month-year">${month} ${year}</div>
+      <div class="calendar-day-of-week">${dayOfWeek}</div>
+    </div>
+    <div class="calendar-date">${date}</div>
+  `;
+}
+
+// Initialize all on DOM ready
+document.addEventListener("DOMContentLoaded", () => {
+  loadTasks();
+  loadForexTasks();
+  loadPerformanceTasks();
+  addLoadingAnimation();
+  updateClock();
+  renderCalendar();
+  setInterval(updateClock, 1000);
+  
+  // Add click effects to buttons
+  document.querySelectorAll("button, .feature-link").forEach(button => {
+    button.addEventListener("click", function(e) {
+      const ripple = document.createElement("span");
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      const x = e.clientX - rect.left - size / 2;
+      const y = e.clientY - rect.top - size / 2;
+      
+      ripple.style.width = ripple.style.height = size + "px";
+      ripple.style.left = x + "px";
+      ripple.style.top = y + "px";
+      ripple.classList.add("ripple");
+      
+      this.appendChild(ripple);
+      
+      setTimeout(() => {
+        ripple.remove();
+      }, 600);
+    });
+  });
+});
+
+
+
+// Real-time Clock
+function updateClock() {
+  const now = new Date();
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const seconds = String(now.getSeconds()).padStart(2, '0');
+  const timeString = `${hours}:${minutes}:${seconds}`;
+  const liveClockElement = document.getElementById('liveClock');
+  if (liveClockElement) {
+    liveClockElement.textContent = timeString;
+  }
+}
+
+// Simple Calendar
+function renderCalendar() {
+  const calendarElement = document.getElementById('calendar');
+  if (!calendarElement) return;
+
+  const now = new Date();
+  const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+  const month = monthNames[now.getMonth()];
+  const year = now.getFullYear();
+  const date = now.getDate();
+  const dayOfWeek = dayNames[now.getDay()];
+
+  calendarElement.innerHTML = `
+    <div class="calendar-header">
+      <div class="calendar-month-year">${month} ${year}</div>
+      <div class="calendar-day-of-week">${dayOfWeek}</div>
+    </div>
+    <div class="calendar-date">${date}</div>
+  `;
+}
+
 
