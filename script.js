@@ -180,35 +180,44 @@ function loadPerformanceTasks() {
 }
 
 function updatePerformanceProgress() {
-  const saved = JSON.parse(localStorage.getItem('performanceTasks')) || {};
-  const groups = ['trading', 'tefl', 'unisa', 'weight'];
-  const container = document.getElementById('performanceProgressBars');
+  const saved = JSON.parse(localStorage.getItem("performanceTasks")) || {};
+  const groups = ["tefl", "unisa"]; // Updated groups
+  const container = document.getElementById("performanceProgressBars");
   if (!container) return;
 
-  container.innerHTML = '';
+  container.innerHTML = "";
 
   groups.forEach(group => {
     const groupTasks = Array.from(document.querySelectorAll(`.perf-task[data-group="${group}"]`));
     const total = groupTasks.length;
-    const completed = groupTasks.filter(cb => saved[cb.dataset.group + '-' + cb.parentElement.textContent.trim()]).length;
+    const completed = groupTasks.filter(cb => saved[cb.dataset.group + "-" + cb.parentElement.textContent.trim()]).length;
     const percent = total === 0 ? 0 : Math.round((completed / total) * 100);
 
-    const barWrapper = document.createElement('div');
-    barWrapper.className = 'progress-bar-container';
+    const barWrapper = document.createElement("div");
+    barWrapper.className = "progress-bar-container";
 
-    const label = document.createElement('div');
-    label.className = 'progress-label';
+    const label = document.createElement("div");
+    label.className = "progress-label";
     label.textContent = `${group.charAt(0).toUpperCase() + group.slice(1)} Progress: ${percent}%`;
 
-    const bar = document.createElement('div');
-    bar.className = 'progress-bar';
-    bar.style.width = percent + '%';
+    const bar = document.createElement("div");
+    bar.className = "progress-bar";
+    bar.style.width = percent + "%";
 
     barWrapper.appendChild(label);
     barWrapper.appendChild(bar);
     container.appendChild(barWrapper);
   });
 }
+
+// Handle notes saving
+document.querySelectorAll(".notes-area").forEach(textarea => {
+  const key = textarea.dataset.group;
+  textarea.value = localStorage.getItem(key) || "";
+  textarea.addEventListener("input", () => {
+    localStorage.setItem(key, textarea.value);
+  });
+});
 
 // Add smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
