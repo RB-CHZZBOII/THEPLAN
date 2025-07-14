@@ -1,105 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Timetable - The Plan</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script defer src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Timetable - Aidan's Success Plan</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-  <header>
-    <div class="logo">🦹‍♂️ THE PLAN</div>
-    <nav>
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="timetable.html" class="nav-link active">Timetable</a>
-      <a href="performance.html" class="nav-link">Performance</a>
-      <button id="darkModeToggle" aria-label="Toggle Dark Mode">🌙</button>
-    </nav>
-  </header>
+    <header>
+        <div class="logo">THE PLAN</div>
+        <nav>
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="timetable.html" class="nav-link active">Timetable</a>
+            <a href="forex.html" class="nav-link">Forex Trading</a>
+            <a href="performance.html" class="nav-link">Performance</a>
+            <button id="darkModeToggle">🌙</button>
+        </nav>
+    </header>
 
-  <main>
-    <h1>Timetable</h1>
-    <section class="progress-summary">
-      <h2>Today's Progress</h2>
-      <div class="progress-circle" id="progressCircle">
-        <svg viewBox="0 0 36 36" class="circular-chart green">
-          <path class="circle-bg"
-            d="M18 2.0845
-              a 15.9155 15.9155 0 0 1 0 31.831
-              a 15.9155 15.9155 0 0 1 0 -31.831"/>
-          <path class="circle"
-            stroke-dasharray="0, 100"
-            d="M18 2.0845
-              a 15.9155 15.9155 0 0 1 0 31.831
-              a 15.9155 15.9155 0 0 1 0 -31.831"/>
-          <text x="18" y="20.35" class="percentage" id="progressPercent">0%</text>
-        </svg>
-      </div>
-      <p id="tasksCompleted">0/42 tasks completed</p>
-    </section>
+    <div class="container">
+        <main>
+            <section class="intro">
+                <h1>Weekly Timetable</h1>
+                <p>This timetable is designed to help you balance your university studies, 120h TEFL certification, and foreign exchange trading goals. It's a template, so feel free to adjust it based on your energy levels and specific deadlines.</p>
+                
+                <div class="key">
+                    <h3>Key:</h3>
+                    <ul>
+                        <li><strong>University:</strong> University Studies (focus areas as needed)</li>
+                        <li><strong>TEFL:</strong> 120h TEFL certification studies</li>
+                        <li><strong>Forex:</strong> Foreign Exchange Trading (1 hour active trading + 2 hours studying)</li>
+                        <li><strong>Meal:</strong> Time for a meal or snack</li>
+                        <li><strong>Free Time:</strong> Includes time for Call of Duty Mobile, hobbies, and relaxation</li>
+                    </ul>
+                </div>
+            </section>
 
-    <section class="checklist-section">
-      <h2>Daily Tasks</h2>
-      <ul id="taskList" class="task-list">
-        <!-- Tasks will be populated by JS -->
-      </ul>
-    </section>
+            <section class="timetable-section">
+                <h2>Weekly Schedule</h2>
+                <div class="table-container">
+                    <table class="timetable-table">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Monday - Friday</th>
+                                <th>Saturday</th>
+                                <th>Sunday</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>6:00 - 6:30</td>
+                                <td class="morning-routine">Morning Routine</td>
+                                <td class="morning-routine">Morning Routine</td>
+                                <td class="morning-routine">Morning Routine</td>
+                            </tr>
+                            <tr>
+                                <td>6:30 - 7:00</td>
+                                <td class="meal">Breakfast (Meal 1)</td>
+                                <td class="meal">Breakfast (Meal 1)</td>
+                                <td class="meal">Breakfast (Meal 1)</td>
+                            </tr>
+                            <tr>
+                                <td>7:00 - 9:00</td>
+                                <td class="university-study">University Study Block 1</td>
+                                <td class="university-study">University Study Block 1</td>
+                                <td class="free-time">Free Time / Catch-up</td>
+                            </tr>
+                            <tr>
+                                <td>9:00 - 9:30</td>
+                                <td class="meal">Snack (Meal 2) & Break</td>
+                                <td class="meal">Snack (Meal 2) & Break</td>
+                                <td class="meal">Snack (Meal 2) & Break</td>
+                            </tr>
+                            <tr>
+                                <td>9:30 - 12:00</td>
+                                <td class="university-study">University Study Block 2</td>
+                                <td class="tefl-study">TEFL Study Block</td>
+                                <td class="free-time">Free Time / Catch-up</td>
+                            </tr>
+                            <tr>
+                                <td>12:00 - 13:00</td>
+                                <td class="meal">Lunch (Meal 3) & Break</td>
+                                <td class="meal">Lunch (Meal 3) & Break</td>
+                                <td class="meal">Lunch (Meal 3) & Break</td>
+                            </tr>
+                            <tr>
+                                <td>13:00 - 15:00</td>
+                                <td class="tefl-study">TEFL Study Block</td>
+                                <td class="forex-study">Forex Study (2 hours)</td>
+                                <td class="free-time">Free Time / Call of Duty Mobile</td>
+                            </tr>
+                            <tr>
+                                <td>15:00 - 15:30</td>
+                                <td class="meal">Snack (Meal 4) & Break</td>
+                                <td class="meal">Snack (Meal 4) & Break</td>
+                                <td class="meal">Snack (Meal 4) & Break</td>
+                            </tr>
+                            <tr>
+                                <td>15:30 - 16:30</td>
+                                <td class="forex-trading">Forex Active Trading (1 hour)</td>
+                                <td class="free-time">Free Time / Social</td>
+                                <td class="free-time">Free Time / Social</td>
+                            </tr>
+                            <tr>
+                                <td>16:30 - 17:30</td>
+                                <td class="university-study">University Study Block 3</td>
+                                <td class="free-time">Free Time / Social</td>
+                                <td class="free-time">Free Time / Social</td>
+                            </tr>
+                            <tr>
+                                <td>17:30 - 18:30</td>
+                                <td class="free-time">Free Time / Call of Duty Mobile</td>
+                                <td class="free-time">Free Time / Call of Duty Mobile</td>
+                                <td class="free-time">Free Time / Call of Duty Mobile</td>
+                            </tr>
+                            <tr>
+                                <td>18:30 - 19:30</td>
+                                <td class="meal">Dinner (Meal 5)</td>
+                                <td class="meal">Dinner (Meal 5)</td>
+                                <td class="meal">Dinner (Meal 5)</td>
+                            </tr>
+                            <tr>
+                                <td>19:30 - 21:00</td>
+                                <td class="review">Review & Plan for Tomorrow</td>
+                                <td class="review">Review & Plan for Tomorrow</td>
+                                <td class="review">Review & Plan for Tomorrow</td>
+                            </tr>
+                            <tr>
+                                <td>21:00 - 22:00</td>
+                                <td class="evening-routine">Evening Routine</td>
+                                <td class="evening-routine">Evening Routine</td>
+                                <td class="evening-routine">Evening Routine</td>
+                            </tr>
+                            <tr>
+                                <td>22:00 - 6:00</td>
+                                <td class="sleep">Sleep (8 hours)</td>
+                                <td class="sleep">Sleep (8 hours)</td>
+                                <td class="sleep">Sleep (8 hours)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="hydration-note"><em>Throughout the day: Stay hydrated - drink plenty of water</em></p>
+            </section>
 
-    <section class="timetable-section">
-      <h2>Weekly Schedule</h2>
-      <table class="timetable-table">
-        <thead>
-          <tr>
-            <th>Time</th>
-            <th>Monday - Friday</th>
-            <th>Saturday</th>
-            <th>Sunday</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>6:00 - 6:30</td><td>Morning Routine</td><td>Morning Routine</td><td>Morning Routine</td></tr>
-          <tr><td>6:30 - 7:00</td><td>Breakfast (Meal 1)</td><td>Breakfast (Meal 1)</td><td>Breakfast (Meal 1)</td></tr>
-          <tr><td>7:00 - 9:00</td><td>University Study Block 1</td><td>University Study Block 1</td><td>Free Time / Catch-up</td></tr>
-          <tr><td>9:00 - 9:30</td><td>Snack (Meal 2) & Break</td><td>Snack (Meal 2) & Break</td><td>Snack (Meal 2) & Break</td></tr>
-          <tr><td>9:30 - 12:00</td><td>University Study Block 2</td><td>TEFL Study Block</td><td>Free Time / Catch-up</td></tr>
-          <tr><td>12:00 - 13:00</td><td>Lunch (Meal 3) & Break</td><td>Lunch (Meal 3) & Break</td><td>Lunch (Meal 3) & Break</td></tr>
-          <tr><td>13:00 - 15:00</td><td>TEFL Study Block</td><td>Forex Study (2 hours)</td><td>Free Time / Call of Duty Mobile</td></tr>
-          <tr><td>15:00 - 15:30</td><td>Snack (Meal 4) & Break</td><td>Snack (Meal 4) & Break</td><td>Snack (Meal 4) & Break</td></tr>
-          <tr><td>15:30 - 16:30</td><td>Forex Active Trading (1 hour)</td><td>Free Time / Social</td><td>Free Time / Social</td></tr>
-          <tr><td>16:30 - 17:30</td><td>University Study Block 3</td><td>Free Time / Social</td><td>Free Time / Social</td></tr>
-          <tr><td>17:30 - 18:30</td><td>Free Time / Call of Duty Mobile</td><td>Free Time / Call of Duty Mobile</td><td>Free Time / Call of Duty Mobile</td></tr>
-          <tr><td>18:30 - 19:30</td><td>Dinner (Meal 5)</td><td>Dinner (Meal 5)</td><td>Dinner (Meal 5)</td></tr>
-          <tr><td>19:30 - 21:00</td><td>Review & Plan for Tomorrow</td><td>Review & Plan for Tomorrow</td><td>Review & Plan for Tomorrow</td></tr>
-          <tr><td>21:00 - 22:00</td><td>Evening Routine</td><td>Evening Routine</td><td>Evening Routine</td></tr>
-          <tr><td>22:00 - 6:00</td><td>Sleep (8 hours)</td><td>Sleep (8 hours)</td><td>Sleep (8 hours)</td></tr>
-        </tbody>
-      </table>
-    </section>
+            <section class="daily-checklist">
+                <h2>Daily Task Checklist</h2>
+                <div class="progress-summary">
+                    <div class="progress-circle">
+                        <svg viewBox="0 0 36 36" class="circular-chart">
+                            <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                            <path class="circle" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                            <text x="18" y="20.35" class="percentage" id="progressPercent">0%</text>
+                        </svg>
+                    </div>
+                    <div class="progress-text">
+                        <h3>Today's Progress</h3>
+                        <p id="tasksCompleted">0/15 tasks completed</p>
+                        <p class="progress-motivation">Keep going! Every task completed brings you closer to your goals.</p>
+                    </div>
+                </div>
+                
+                <ul class="task-list" id="taskList">
+                    <!-- Tasks will be loaded by JavaScript -->
+                </ul>
+            </section>
 
-    <section class="routine-section">
-      <h2>Morning Routine (6:00 - 6:30 AM)</h2>
-      <ul>
-        <li>Wake Up & Hydrate: Drink a large glass of water immediately.</li>
-        <li>Light Stretching/Movement: 5-10 minutes of gentle stretching or calisthenics.</li>
-        <li>Quick Review & Goal Setting: Identify top 1-3 priorities for University studies, TEFL, and forex trading.</li>
-        <li>Personal Hygiene & Get Dressed: Brush teeth, wash face, and get dressed.</li>
-      </ul>
+            <section class="routines">
+                <div class="collapsible-section">
+                    <button class="collapsible">Morning Routine (6:00 - 6:30 AM)</button>
+                    <div class="content">
+                        <p>This routine is designed to enhance productivity and set a positive tone for your day.</p>
+                        <ul>
+                            <li><strong>6:00 AM - Wake Up & Hydrate:</strong> Avoid hitting snooze. Get out of bed immediately. Drink a large glass of water (250-500ml) to rehydrate your body after sleep. Consider adding a squeeze of lemon for an extra boost.</li>
+                            <li><strong>6:05 AM - Light Stretching/Movement:</strong> Engage in 5-10 minutes of gentle stretching, yoga, or light calisthenics. This helps to wake up your body, improve circulation, and clear your mind. You can also do a few minutes of jumping jacks or a brisk walk around your living space.</li>
+                            <li><strong>6:15 AM - Quick Review & Goal Setting:</strong> Spend 5-10 minutes reviewing your timetable for the day and identifying your top 1-3 priorities for your University studies, TEFL certification, and forex trading goals. Write them down. This provides clarity and focus.</li>
+                            <li><strong>6:25 AM - Personal Hygiene & Get Dressed:</strong> Complete your personal hygiene (brush teeth, wash face) and get dressed in comfortable clothes that make you feel ready to tackle the day. Avoid staying in pajamas.</li>
+                        </ul>
+                    </div>
+                </div>
 
-      <h2>Evening Routine (21:00 - 22:00 PM)</h2>
-      <ul>
-        <li>Digital Detox & Wind Down: Power down electronics, engage in calming activities.</li>
-        <li>Personal Reflection & Gratitude: Reflect and list 3 things you're thankful for.</li>
-        <li>Prepare for Tomorrow: Lay out clothes, pack bag, tidy study space.</li>
-        <li>Light Snack & Hydration: Small snack if needed, drink water.</li>
-        <li>Prepare for Sleep: Dim lights, cool and dark room, aim to be in bed by 22:00.</li>
-      </ul>
-    </section>
-  </main>
+                <div class="collapsible-section">
+                    <button class="collapsible">Evening Routine (21:00 - 22:00 PM)</button>
+                    <div class="content">
+                        <p>This routine focuses on relaxation, winding down, and preparing for restful sleep.</p>
+                        <ul>
+                            <li><strong>21:00 PM - Digital Detox & Wind Down:</strong> Power down all electronic devices (phone, computer, gaming console). Engage in calming activities like reading a physical book, listening to soothing music, or journaling about your day. Avoid stimulating content or work-related tasks.</li>
+                            <li><strong>21:30 PM - Personal Reflection & Gratitude:</strong> Spend 10-15 minutes reflecting on your day. Acknowledge your achievements, no matter how small. Practice gratitude by listing 3 things you are thankful for. This helps to shift your mindset to a positive state.</li>
+                            <li><strong>21:45 PM - Prepare for Tomorrow:</strong> Lay out your clothes for the next day, pack your bag if needed, and ensure your study space is tidy. This minimizes morning stress and saves time.</li>
+                            <li><strong>21:55 PM - Light Snack (Meal 6, if needed) & Hydration:</strong> If you feel hungry, have a small, easily digestible snack (e.g., a handful of nuts, a piece of fruit). Drink a glass of water. Avoid heavy meals or sugary drinks close to bedtime.</li>
+                            <li><strong>22:00 PM - Prepare for Sleep:</strong> Dim the lights, ensure your bedroom is cool, dark, and quiet. Begin your sleep routine (e.g., brush teeth, wash face). Aim to be in bed by 22:00 to ensure 8 hours of sleep.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
 
-  <footer>
-    <p>© 2025 The Plan | Dark Villain Theme</p>
-  </footer>
+            <section class="tips">
+                <h2>Additional Tips for Success</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <h3>TEFL Certification Progress</h3>
+                        <p>Stay consistent with your 120h TEFL certification studies. Break down the coursework into manageable daily chunks and track your progress regularly.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h3>Study Efficiency</h3>
+                        <p>Use the Pomodoro Technique during study blocks: 25 minutes focused study, 5-minute break. This helps maintain concentration and prevents burnout.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h3>Flexibility</h3>
+                        <p>This timetable is a guide. Adjust it based on your energy levels, deadlines, and life circumstances. The key is consistency, not perfection.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Created for Aidan Hilpert - Your journey to success starts with good planning!</p>
+        </footer>
+    </div>
 </body>
 </html>
 

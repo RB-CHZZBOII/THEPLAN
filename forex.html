@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foreign Exchange Trading - Aidan's Success Plan</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="logo">THE PLAN</div>
+        <nav>
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="timetable.html" class="nav-link">Timetable</a>
+            <a href="forex.html" class="nav-link active">Forex Trading</a>
+            <a href="performance.html" class="nav-link">Performance</a>
+            <button id="darkModeToggle">🌙</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="forex-hero">
+            <h1>Foreign Exchange Trading</h1>
+            <p class="subtitle">Master the art of forex trading with disciplined practice and continuous learning</p>
+        </section>
+
+        <section class="forex-schedule">
+            <h2>Trading Schedule</h2>
+            <div class="schedule-grid">
+                <div class="schedule-card active-trading">
+                    <h3>Active Trading Sessions</h3>
+                    <p><strong>Monday - Friday: 15:30 - 16:30</strong></p>
+                    <p>Dedicated 1-hour focused trading sessions during weekdays</p>
+                    <div class="session-breakdown">
+                        <ul>
+                            <li>Pre-market analysis (10 minutes)</li>
+                            <li>Active trading session (40 minutes)</li>
+                            <li>Post-session review and journaling (10 minutes)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="schedule-card study-time">
+                    <h3>Study & Analysis</h3>
+                    <p><strong>Saturday: 13:00 - 15:00</strong></p>
+                    <p>2-hour dedicated learning and strategy development session</p>
+                    <div class="session-breakdown">
+                        <ul>
+                            <li>Market analysis and chart review</li>
+                            <li>Trading strategy backtesting</li>
+                            <li>Educational content consumption</li>
+                            <li>Trading journal analysis</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="forex-content">
+            <div class="forex-cards">
+                <div class="forex-card">
+                    <img src="forex-chart.jpg" alt="Forex Trading Chart" class="forex-image">
+                    <h3>Technical Analysis</h3>
+                    <p>Master chart patterns, indicators, and market trends to make informed trading decisions.</p>
+                    <div class="card-features">
+                        <span class="feature-tag">Chart Patterns</span>
+                        <span class="feature-tag">Indicators</span>
+                        <span class="feature-tag">Trend Analysis</span>
+                    </div>
+                </div>
+                
+                <div class="forex-card">
+                    <img src="forex-market.png" alt="Forex Market" class="forex-image">
+                    <h3>Market Analysis</h3>
+                    <p>Stay updated with global economic events and their impact on currency movements.</p>
+                    <div class="card-features">
+                        <span class="feature-tag">Economic Calendar</span>
+                        <span class="feature-tag">News Analysis</span>
+                        <span class="feature-tag">Market Sentiment</span>
+                    </div>
+                </div>
+
+                <div class="forex-card">
+                    <img src="forex-icon.jpg" alt="Forex Trading" class="forex-image">
+                    <h3>Risk Management</h3>
+                    <p>Implement proper risk management strategies to protect your trading capital.</p>
+                    <div class="card-features">
+                        <span class="feature-tag">Position Sizing</span>
+                        <span class="feature-tag">Stop Loss</span>
+                        <span class="feature-tag">Risk/Reward</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="trading-principles">
+            <h2>Key Trading Principles</h2>
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <div class="principle-icon">💰</div>
+                    <h3>Risk Management</h3>
+                    <p>Never risk more than 1-2% of your account per trade. Preserve capital for long-term success.</p>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-icon">🎯</div>
+                    <h3>Discipline</h3>
+                    <p>Stick to your trading plan and time limits. Emotional trading leads to losses.</p>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-icon">📚</div>
+                    <h3>Continuous Learning</h3>
+                    <p>Use study time to constantly improve your skills and adapt to market changes.</p>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-icon">📊</div>
+                    <h3>Record Keeping</h3>
+                    <p>Maintain a detailed trading journal for all trades to track performance and learn from mistakes.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="trading-checklist">
+            <h2>Daily Trading Checklist</h2>
+            <div class="checklist-container">
+                <div class="checklist-section">
+                    <h3>Pre-Trading (10 minutes)</h3>
+                    <ul class="task-list" id="preTradeList">
+                        <li><label><input type="checkbox" class="forex-task" data-category="pre"> Check economic calendar for news events</label></li>
+                        <li><label><input type="checkbox" class="forex-task" data-category="pre"> Review overnight market movements</label></li>
+                        <li><label><input type="checkbox" class="forex-task" data-category="pre"> Identify key support and resistance levels</label></li>
+                        <li><label><input type="checkbox" class="forex-task" data-category="pre"> Set daily risk parameters</label></li>
+                    </ul>
+                </div>
+
+                <div class="checklist-section">
+                    <h3>During Trading (40 minutes)</h3>
+                    <ul class="task-list" id="duringTradeList">
+                        <li><label><input type="checkbox" class="forex-task" data-category="during"> Follow trading plan strictly</label></li>
+                        <li><label><input type="checkbox" class="forex-task" data-category="during"> Use proper position sizing</label></li>
+                        <li><label><input type="checkbox" class="forex-task" data-category="during"> Set stop loss for every trade</label></li>
+                        <li><label><input type="checkbox" class="forex-task" data-category="during"> Monitor risk/reward ratios</label></li>
+                    </ul>
+                </div>
+
+                <div class="checklist-section">
+                    <h3>Post-Trading (10 minutes)</h3>
+                    <ul class="task-list" id="postTradeList">
+                        <li><label><input type="checkbox" class="forex-task" data-category="post"> Record all trades in journal</label></li>
+                        <li><label><input type="checkbox" class="forex-task" data-category="post"> Analyze winning and losing trades</label></li>
+                        <li><label><input type="checkbox" class="forex-task" data-category="post"> Note lessons learned</label></li>
+                        <li><label><input type="checkbox" class="forex-task" data-category="post"> Plan for next trading session</label></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="progress-summary">
+                <div class="progress-circle">
+                    <svg viewBox="0 0 36 36" class="circular-chart">
+                        <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path class="circle" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <text x="18" y="20.35" class="percentage" id="forexProgressPercent">0%</text>
+                    </svg>
+                </div>
+                <div class="progress-text">
+                    <h3>Today's Progress</h3>
+                    <p id="forexTasksCompleted">0/12 tasks completed</p>
+                    <p class="progress-motivation">Stay disciplined and follow your plan!</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="market-hours">
+            <h2>Major Market Sessions</h2>
+            <div class="market-sessions">
+                <div class="session-card">
+                    <h3>London Session</h3>
+                    <p class="session-time">08:00 - 17:00 GMT</p>
+                    <p>High volatility, major EUR/GBP movements</p>
+                </div>
+                
+                <div class="session-card">
+                    <h3>New York Session</h3>
+                    <p class="session-time">13:00 - 22:00 GMT</p>
+                    <p>USD pairs most active, news releases</p>
+                </div>
+                
+                <div class="session-card">
+                    <h3>Tokyo Session</h3>
+                    <p class="session-time">00:00 - 09:00 GMT</p>
+                    <p>JPY and AUD pairs, Asian market focus</p>
+                </div>
+                
+                <div class="session-card">
+                    <h3>Sydney Session</h3>
+                    <p class="session-time">22:00 - 07:00 GMT</p>
+                    <p>AUD/NZD pairs, commodity currencies</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Created for Aidan Hilpert - Master forex trading through discipline and continuous learning!</p>
+    </footer>
+</body>
+</html>
+

@@ -31,6 +31,8 @@ const quotes = [
   '"Victory belongs to the most persevering." – Napoleon Bonaparte',
   '"The harder the battle, the sweeter the victory." – Les Brown',
   '"Conquer yourself rather than the world." – René Descartes',
+  '"Success is not final, failure is not fatal: it is the courage to continue that counts." – Winston Churchill',
+  '"The only impossible journey is the one you never begin." – Tony Robbins'
 ];
 
 const quoteContainer = document.getElementById('quoteContainer');
@@ -46,18 +48,18 @@ if (quoteContainer) {
 const timetableTasks = [
   "Morning Routine",
   "Breakfast (Meal 1)",
-  "BA Study Block 1",
+  "University Study Block 1",
   "Snack (Meal 2) & Break",
-  "BA Study Block 2",
+  "University Study Block 2",
   "Lunch (Meal 3) & Break",
   "TEFL Study Block",
   "Snack (Meal 4) & Break",
-  "BA Study Block 3",
+  "Forex Active Trading (1 hour)",
+  "University Study Block 3",
   "Free Time / Call of Duty Mobile",
   "Dinner (Meal 5)",
   "Review & Plan for Tomorrow",
   "Evening Routine",
-  "Sleep (8 hours)",
   "Stay hydrated - drink plenty of water"
 ];
 
@@ -97,6 +99,57 @@ function updateProgress() {
   const progressPercent = document.getElementById('progressPercent');
   const tasksCompleted = document.getElementById('tasksCompleted');
   const circle = document.querySelector('.circle');
+
+  if (progressPercent) progressPercent.textContent = `${percent}%`;
+  if (tasksCompleted) tasksCompleted.textContent = `${completed}/${total} tasks completed`;
+  if (circle) {
+    const dashArray = `${percent}, 100`;
+    circle.setAttribute('stroke-dasharray', dashArray);
+  }
+}
+
+// Forex Page: Trading Checklist
+function loadForexTasks() {
+  const forexTaskLists = ['preTradeList', 'duringTradeList', 'postTradeList'];
+  
+  forexTaskLists.forEach(listId => {
+    const taskList = document.getElementById(listId);
+    if (!taskList) return;
+    
+    // Load saved state for forex tasks
+    const saved = JSON.parse(localStorage.getItem('forexTasks')) || {};
+    taskList.querySelectorAll('input[type=checkbox]').forEach(checkbox => {
+      const category = checkbox.dataset.category;
+      const taskText = checkbox.parentElement.textContent.trim();
+      const key = `${category}-${taskText}`;
+      checkbox.checked = saved[key] || false;
+      checkbox.addEventListener('change', () => {
+        saved[key] = checkbox.checked;
+        localStorage.setItem('forexTasks', JSON.stringify(saved));
+        updateForexProgress();
+      });
+    });
+  });
+
+  updateForexProgress();
+}
+
+function updateForexProgress() {
+  const saved = JSON.parse(localStorage.getItem('forexTasks')) || {};
+  const allForexTasks = document.querySelectorAll('.forex-task');
+  const total = allForexTasks.length;
+  const completed = Array.from(allForexTasks).filter(task => {
+    const category = task.dataset.category;
+    const taskText = task.parentElement.textContent.trim();
+    const key = `${category}-${taskText}`;
+    return saved[key];
+  }).length;
+
+  const percent = total === 0 ? 0 : Math.round((completed / total) * 100);
+
+  const progressPercent = document.getElementById('forexProgressPercent');
+  const tasksCompleted = document.getElementById('forexTasksCompleted');
+  const circle = document.querySelector('.forex-hero .circle');
 
   if (progressPercent) progressPercent.textContent = `${percent}%`;
   if (tasksCompleted) tasksCompleted.textContent = `${completed}/${total} tasks completed`;
@@ -157,71 +210,68 @@ function updatePerformanceProgress() {
   });
 }
 
-// Fitness Page: Checklist and Countdown Timer
-const fitnessTasks = [
-  "Upper Body & Core Focus Session",
-  "Lower Body Focus Session",
-  "Full Body or Active Recovery",
-  "Endurance Run / Cross-Training",
-  "Stretching & Mobility Work"
-];
-
-function loadFitnessTasks() {
-  const fitnessTaskList = document.getElementById('fitnessTaskList');
-  if (!fitnessTaskList) return;
-
-  fitnessTaskList.innerHTML = '';
-  fitnessTasks.forEach((task, i) => {
-    const li = document.createElement('li');
-    li.innerHTML = `<label><input type="checkbox" data-index="${i}"> ${task}</label>`;
-    fitnessTaskList.appendChild(li);
-  });
-
-  // Load saved state
-  const saved = JSON.parse(localStorage.getItem('fitnessTasks')) || {};
-  fitnessTaskList.querySelectorAll('input[type=checkbox]').forEach(checkbox => {
-    const idx = checkbox.dataset.index;
-    checkbox.checked = saved[idx] || false;
-    checkbox.addEventListener('change', () => {
-      saved[idx] = checkbox.checked;
-      localStorage.setItem('fitnessTasks', JSON.stringify(saved));
-    });
-  });
-}
-
-// Countdown Timer to Comrades Marathon (assumed date: June 1, 2027)
-function startCountdown() {
-  const countdownEl = document.getElementById('countdownTimer');
-  if (!countdownEl) return;
-
-  const targetDate = new Date('2027-06-01T06:00:00'); // Adjust as needed
-
-  function updateTimer() {
-    const now = new Date();
-    const diff = targetDate - now;
-
-    if (diff <= 0) {
-      countdownEl.textContent = "Race Day is Here! Good Luck!";
-      clearInterval(timerInterval);
-      return;
+// Add smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
     }
+  });
+});
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hrs = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const mins = Math.floor((diff / (1000 * 60)) % 60);
-    const secs = Math.floor((diff / 1000) % 60);
+// Add loading animation for interactive elements
+function addLoadingAnimation() {
+  const cards = document.querySelectorAll('.feature-card, .forex-card, .principle-card, .tip-card');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
 
-    countdownEl.textContent = `${days}d ${hrs}h ${mins}m ${secs}s`;
-  }
-
-  updateTimer();
-  const timerInterval = setInterval(updateTimer, 1000);
+  cards.forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(card);
+  });
 }
 
 // Initialize all on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
   loadTasks();
+  loadForexTasks();
   loadPerformanceTasks();
-  loadFitnessTasks();
-  startCountdown();
+  addLoadingAnimation();
+  
+  // Add click effects to buttons
+  document.querySelectorAll('button, .feature-link').forEach(button => {
+    button.addEventListener('click', function(e) {
+      const ripple = document.createElement('span');
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      const x = e.clientX - rect.left - size / 2;
+      const y = e.clientY - rect.top - size / 2;
+      
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = x + 'px';
+      ripple.style.top = y + 'px';
+      ripple.classList.add('ripple');
+      
+      this.appendChild(ripple);
+      
+      setTimeout(() => {
+        ripple.remove();
+      }, 600);
+    });
+  });
 });
+
